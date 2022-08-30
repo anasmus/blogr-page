@@ -159,6 +159,10 @@ footer {
 .footer-nav-item li {
     margin-bottom: 1rem;
 }
+.footer-nav-link {
+    color: var(--neutral-blue);
+    text-decoration: none;
+}
 /* ADDITIONAL STYLES */
 ul {
     list-style-type: none;
@@ -177,6 +181,7 @@ ul {
     text-align: center;
     display: inline-block;
     font-weight: bold;
+    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 }
 .alt-btn {
     background-color: transparent;
@@ -190,4 +195,21 @@ ul {
 }
 .main-list-item::after {
     content: url('images/icon-arrow-light.svg');
+}
+
+/* INTERACTIVITY */
+.main-list-item {
+    cursor: pointer;
+}
+.main-list-item strong:is(:hover, :focus), .footer-nav-link:is(:hover, :focus) {
+    border-bottom: 1.5px solid white;
+}
+.btn:is(:hover, :focus) {
+    background-color: var(--primary-light-red);
+    color: var(--neutral-white);
+}
+.alt-btn-two:is(:hover, :focus) {
+    border-color: transparent;
+    color: var(--primary-light-red);
+    background-color: var(--neutral-white);
 }
