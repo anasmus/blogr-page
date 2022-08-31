@@ -63,9 +63,26 @@ nav {
     display: flex;
     align-items: center;
     gap: 2rem;
+    position: relative;
 }
 .navbar-login {
     margin-left: auto;
+}
+.secondary-nav {
+    position: absolute;
+    top: 100%;
+    width: 150px;
+    padding: 2rem;
+    background-color: var(--neutral-white);
+    border-radius: 10%;
+}
+.secondary-nav li:not(:last-child) {
+    margin-bottom: 4px;
+}
+.secondary-nav a {
+    color: var(--neutral-black-blue);
+    text-decoration: none;
+    transition: all 200ms linear;
 }
 main {
     padding-top: 100px;
@@ -193,15 +210,16 @@ ul {
     font-weight: bold;
     margin-left: 2rem;
 }
-.main-list-item::after {
+.main-nav-item::after {
     content: url('images/icon-arrow-light.svg');
+    margin-left: 0.5rem;
 }
 
 /* INTERACTIVITY */
-.main-list-item {
+.main-nav-item {
     cursor: pointer;
 }
-.main-list-item strong:is(:hover, :focus), .footer-nav-link:is(:hover, :focus) {
+.main-nav-item:is(:hover, :focus), .footer-nav-link:is(:hover, :focus) {
     border-bottom: 1.5px solid white;
 }
 .btn:is(:hover, :focus) {
@@ -212,4 +230,8 @@ ul {
     border-color: transparent;
     color: var(--primary-light-red);
     background-color: var(--neutral-white);
+}
+.secondary-nav a:is(:hover, :focus) {
+    font-weight: bold;
+    color: #000;
 }
