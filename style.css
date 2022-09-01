@@ -44,6 +44,7 @@ h1,h2,h3,h4,h5,h6 {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
+    border-bottom-left-radius: 15%;
 }
 .logo {
     width: 101px;
@@ -55,6 +56,9 @@ header {
     align-items: center;
     padding: 4rem 5rem;
     gap: 4rem;
+}
+.hamburger {
+    display: none;
 }
 nav {
     flex-grow: 1;
@@ -84,6 +88,14 @@ nav {
     text-decoration: none;
     transition: all 200ms linear;
 }
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .navbar {
+        display: none;
+    }
+}
 main {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -91,18 +103,23 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    text-align: center;
 }
 .section-one {
     padding-top: 100px;
     padding-bottom: 100px;
-    position: relative;
     overflow: hidden;
+}
+.section-one-container {
+    display: flex;
+    margin-inline: 4rem;
+    padding-right: 40%;
+    position: relative;
 }
 .section-one-desktop-image {
     width: 60%;
     position: absolute;
-    top: 20%;
-    right: -15%;
+    right: -20%;
 }
 .section-one h2 {
     text-align: center;
@@ -111,21 +128,30 @@ main {
     margin-top: 100px;
     margin-bottom: 20px;
 }
-.section-one p {
-    padding-right: 50px;
-}
-.section-one-container {
-    max-width: 60%;
-    padding-left: 40px;
-    padding-right: 40px;
+@media (max-width: 768px) {
+    .section-one-desktop-image {
+        position: static;
+        width: 100%;
+    }
+    .section-one-container {
+        flex-direction: column-reverse;
+        padding-right: 0;
+        align-items: center;
+        text-align: center;
+        margin-top: 2rem;
+    }
+    .section-one h4 {
+        margin-top: 20px;
+    }
 }
 .section-two {
     background: var(--gradient-dark);
     color: var(--neutral-white);
     align-items: center;
     border-radius: 0 50px;
-    padding-block: 80px;
     position: relative;
+    display: flex;
+    height: 200px;
 }
 .section-two p {
     margin-top: 3rem;
@@ -133,32 +159,67 @@ main {
     line-height: 1.3;
 }
 .section-two-container {
-    padding-left: 50%;
+    width: 50%;
 }
 .section-two-phone-image {
     width: 40%;
-    top: -18%;
-    position: absolute;
     background-image: url('images/bg-pattern-circles.svg');
     background-size: cover;
+    position: relative;
+}
+@media (max-width: 768px) {
+    .section-two {
+        flex-direction: column;
+        height: auto;
+        padding-bottom: 2rem;
+    }
+    .section-two-container {
+        width: 90%;
+        text-align: center;
+    }
+    .section-two-phone-image {
+        width: 80%;
+        bottom: 50px;
+    }
 }
 .section-three {
+    margin-top: 5rem;
     padding-block: 80px;
-    margin-top: 150px;
     position: relative;
     overflow: hidden;
-}
-.section-three-laptop-image {
-    position: absolute;
-    width: 60%;
-    top: -15%;
-    left: -18%;
+    display: flex;
 }
 .section-three-container {
-    padding-left: 50%;
+    width: 50%;
+    margin-inline: 4rem;
+    margin-top: 5rem;
+}
+.section-three-laptop-image {
+    width: 50%;
+    position: relative;
+    bottom: -20px;
+    right: 15%;
+    transform: scale(1.2);
 }
 .section-three p{
     margin-block: 1.5rem;
+}
+@media (max-width: 768px) {
+    .section-three {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+        padding-block: 1rem;
+        text-align: center;
+    }
+    .section-three-container {
+        width: 90%;
+    }
+    .section-three-laptop-image {
+        width: 100%;
+        position: static;
+        transform: scale(1);
+    }
 }
 footer {
     background-color: var(--neutral-black-blue);
@@ -169,6 +230,7 @@ footer {
     padding: 3rem 4rem;
     display: flex;
     justify-content: space-around;
+    text-align: center;
 }
 .footer-nav-item ul{
     margin-top: 3rem;
@@ -179,6 +241,15 @@ footer {
 .footer-nav-link {
     color: var(--neutral-blue);
     text-decoration: none;
+}
+@media (max-width: 768px) {
+    .footer-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    footer .logo {
+        margin-bottom: 2rem;
+    }
 }
 /* ADDITIONAL STYLES */
 ul {
@@ -216,7 +287,7 @@ ul {
 }
 
 /* INTERACTIVITY */
-.main-nav-item {
+.main-nav-item, .hamburger{
     cursor: pointer;
 }
 .main-nav-item:is(:hover, :focus), .footer-nav-link:is(:hover, :focus) {
