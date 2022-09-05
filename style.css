@@ -161,12 +161,11 @@ main {
 .section-one-container {
     display: flex;
     margin-inline: 4rem;
-    padding-right: 40%;
     position: relative;
 }
 .section-one-desktop-image {
     width: 60%;
-    position: absolute;
+    position: relative;
     right: -20%;
 }
 .section-one h2 {
