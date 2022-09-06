@@ -352,3 +352,20 @@ ul {
 .active::after {
     transform: rotate(180deg);
 }
+.icon {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    text-decoration: none;
+    color: white;
+    font-size: 2.4rem;
+    padding: 0.5rem 0.7rem;
+    background-color: rgb(39, 39, 39);
+    border-radius: 50%;
+}
+.fa-github {
+    transition: transform 150ms linear;
+}
+.icon:is(:hover, :focus) .fa-github{
+    transform: rotate(720deg);
+}
